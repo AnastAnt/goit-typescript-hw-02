@@ -6,7 +6,7 @@ import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import LoadMoreBtn from "../loadMoreBtn/LoadMoreBtn";
 import ImageModal from "../imageModal/ImageModal";
-import { Image, UnsplashImageResponse, UnsplashImageResult } from "./App.type";
+import { Image, UnsplashApiResponse, UnsplashImageResult } from "./App.type";
 
 const App: FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -23,14 +23,13 @@ const App: FC = () => {
       setLoading(true);
       const apiKey: string = "sYKNFaAF_-k_SNQmBmmJdR4nNTEdL1dfQJ5bOFIURh0";
       const params = {
-        client_id: apiKey,
         query: query,
         orientation: "landscape",
         page: pageNum,
         per_page: 12,
       };
-      const response: AxiosResponse<UnsplashImageResponse> =
-        await axios.get<UnsplashImageResponse>(
+      const response: AxiosResponse<UnsplashApiResponse> =
+        await axios.get<UnsplashApiResponse>(
           `https://api.unsplash.com/search/photos/`,
           {
             params: params,
