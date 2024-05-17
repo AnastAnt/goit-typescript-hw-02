@@ -6,12 +6,28 @@ export interface Image {
 }
 
 export interface UnsplashImage {
-  client_id: string,
-  query: string,
-  orientation: string,
-  page: number,
-  per_page:number,
+  alt_description: string;
+  id: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
 }
-
-
-
+export interface UnsplashImageResponse {
+  results: {
+    alt_description: string;
+    id: string;
+    urls: {
+      small: string;
+      regular: string;
+    };
+  }[];
+}
+export interface UnsplashImageResult {
+  alt_description: string;
+  id: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
+}
