@@ -28,6 +28,7 @@ const App: FC = () => {
         page: pageNum,
         per_page: 12,
       };
+      console.log("Fetching images with query:", query, "and page:", pageNum);
       const response: AxiosResponse<UnsplashApiResponse> =
         await axios.get<UnsplashApiResponse>(
           `https://api.unsplash.com/search/photos/`,
@@ -78,6 +79,7 @@ const App: FC = () => {
   }, [query, page]);
 
   const handleSearch = (query: string): void => {
+    console.log("Search query received in App:", query);
     setQuery(query);
   };
 
